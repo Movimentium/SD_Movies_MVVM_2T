@@ -11,7 +11,8 @@ final class Movie {
     var year: Int
     @Attribute(.externalStorage) var imgData: Data?
     
-    
+    @Relationship(deleteRule: .nullify, inverse: \Actor.movies)
+    var actors: [Actor] = []
     
     init(title: String, year: Int) {
         self.title = title
@@ -19,22 +20,25 @@ final class Movie {
     }
 }
 
+
 @Model
 final class Actor {
     var name: String
     var yearOfBirth: Int?
+    var movies: [Movie] = []
     @Attribute(.externalStorage) var imgData: Data?
 
-    
-    
     init(name: String, yearOfBirth: Int? = nil) {
         self.name = name
         self.yearOfBirth = yearOfBirth
     }
 }
 
+
+
 // MARK: - Presentation properties
 extension Movie {
+    
     var strYear: String {
         year.description
     }
@@ -49,6 +53,7 @@ extension Movie {
 
 
 extension Actor {
+    
     var strYearOfBirth: String {
         yearOfBirth?.description ?? "N/A"
     }
