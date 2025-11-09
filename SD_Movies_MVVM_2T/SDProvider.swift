@@ -22,3 +22,62 @@ final class SDProvider {
     }
     
 }
+
+#if DEBUG
+// Things for Previews
+extension SDProvider {
+//    static let fakeModelContainer = SDProvider(true).modelContainer
+//    
+//    static func fakeModelContainer(_ isInMemoryOnly: Bool = true) -> ModelContainer {
+//        Self.insertFakeData()
+//        return Self.fakeModelContainer
+//    }
+//    
+//    static func insertFakeData() {
+//        Movie.movies.forEach { Self.fakeModelContainer.mainContext.insert($0) }
+//    }
+}
+
+extension ModelContext {
+    @MainActor
+    static let fakeModelCtx = ModelContainer.fakeModelContainer.mainContext
+}
+
+@MainActor
+extension ModelContainer {
+    static let fakeModelContainer = SDProvider(true).modelContainer
+    
+    static func fakeModelContainerWithData(_ isInMemoryOnly: Bool = true) -> ModelContainer {
+        Self.insertFakeData()
+        return Self.fakeModelContainer
+    }
+    
+    static func insertFakeData() {
+        Movie.movies.forEach { Self.fakeModelContainer.mainContext.insert($0) }
+    }
+}
+ 
+extension Movie {
+    static let movies: [Movie] = {
+        let movies = [
+            Movie(title: "Batman", year: 1989),
+            Movie(title: "Memento", year: 2000)
+        ]
+        movies[0].actors = [Actor.actors[0], Actor.actors[1]]
+        movies[1].actors = [Actor.actors[2], Actor.actors[3]]
+        
+        return movies
+    }()
+}
+
+extension Actor {
+    static let actors = [
+        Actor(name: "Michael Keaton"),
+        Actor(name: "Jack Nicholson"),
+        Actor(name: "Carrie-Anne Moss"),
+        Actor(name: "Guy Pearce")
+    ]
+}
+
+#endif
+
