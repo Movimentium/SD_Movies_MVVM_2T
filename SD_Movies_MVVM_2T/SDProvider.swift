@@ -3,6 +3,7 @@
 //  Created by Miguel Gallego on 9/11/25.
 import Foundation
 import SwiftData
+import UIKit
 
 @MainActor
 final class SDProvider {
@@ -53,6 +54,9 @@ extension Movie {
         movies[0].actors = [Actor.actors[0], Actor.actors[1]]
         movies[1].actors = [Actor.actors[2], Actor.actors[3]]
         
+        UIImage(named: "Batman")!.pngData()
+        movies[0].imgData = UIImage(named: "Batman")!.pngData()
+        movies[1].imgData = UIImage(named: "Memento")!.pngData()
         return movies
     }()
 }

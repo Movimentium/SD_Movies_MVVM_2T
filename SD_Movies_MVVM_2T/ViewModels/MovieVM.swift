@@ -10,7 +10,7 @@ final class MovieVM {
     var year: Int
     
     let years: [Int]
-    var showAddMovie = false
+    var showingAddMovie = false
 
     
     private let modelCtx: ModelContext
@@ -20,5 +20,13 @@ final class MovieVM {
         let maxYear = Calendar.current.component(.year, from: .now)
         years = Array(1850...maxYear)
         year = maxYear - 5
+    }
+    
+    func showAddMovie() {
+        showingAddMovie = true
+    }
+    
+    func deleteMovie(_ movie: Movie) {
+        
     }
 }

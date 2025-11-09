@@ -17,6 +17,7 @@
 		0C83761C2EC0F78500F21FA2 /* SDProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83761B2EC0F78500F21FA2 /* SDProvider.swift */; };
 		0C83761F2EC0FB1400F21FA2 /* MovieVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C83761E2EC0FB1400F21FA2 /* MovieVM.swift */; };
 		0C8376212EC0FB1F00F21FA2 /* ActorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8376202EC0FB1F00F21FA2 /* ActorVM.swift */; };
+		0C8376252EC1172D00F21FA2 /* MovieListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8376242EC1172D00F21FA2 /* MovieListScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0C83761B2EC0F78500F21FA2 /* SDProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDProvider.swift; sourceTree = "<group>"; };
 		0C83761E2EC0FB1400F21FA2 /* MovieVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVM.swift; sourceTree = "<group>"; };
 		0C8376202EC0FB1F00F21FA2 /* ActorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorVM.swift; sourceTree = "<group>"; };
+		0C8376242EC1172D00F21FA2 /* MovieListScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				0C2A17762EC0C1B5005FD5E2 /* SD_Movies_MVVM_2TApp.swift */,
 				0C2A17782EC0C1B5005FD5E2 /* DebugScreen.swift */,
+				0C8376242EC1172D00F21FA2 /* MovieListScreen.swift */,
 				0C83761D2EC0FB0500F21FA2 /* ViewModels */,
 				0C83761B2EC0F78500F21FA2 /* SDProvider.swift */,
 				0C8376182EC0F56F00F21FA2 /* Models */,
@@ -176,6 +179,7 @@
 				0C2A17792EC0C1B5005FD5E2 /* DebugScreen.swift in Sources */,
 				0C2A17772EC0C1B5005FD5E2 /* SD_Movies_MVVM_2TApp.swift in Sources */,
 				0C83761F2EC0FB1400F21FA2 /* MovieVM.swift in Sources */,
+				0C8376252EC1172D00F21FA2 /* MovieListScreen.swift in Sources */,
 				0C8376212EC0FB1F00F21FA2 /* ActorVM.swift in Sources */,
 				0C83761A2EC0F58800F21FA2 /* Actor.swift in Sources */,
 				0C83761C2EC0F78500F21FA2 /* SDProvider.swift in Sources */,

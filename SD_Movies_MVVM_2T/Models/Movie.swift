@@ -28,10 +28,10 @@ extension Movie {
         year.description
     }
     
-    var img: Image? {
+    var img: UIImage {
         if let data = imgData, let uiImage = UIImage(data: data) {
-            return Image(uiImage: uiImage)
+            return uiImage
         }
-        return nil  // TODO: return a placeholder
+        return UIImage(systemName: "photo")!  //TODO: TEST
     }
 }
