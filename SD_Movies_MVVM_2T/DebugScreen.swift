@@ -14,7 +14,7 @@ struct DebugScreen: View {
         List {
             Section("Movies") {
                 ForEach(movies) { m in
-                    VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading) {
                         Text(m.title).bold()
                         ForEach(m.actors) { a in
                             Text(a.name).font(.caption2)
@@ -25,7 +25,12 @@ struct DebugScreen: View {
          
             Section("Actors") {
                 ForEach(actors) { a in
-                    Text(a.name)
+                    VStack(alignment: .leading) {
+                        Text(a.name).bold()
+                        ForEach(a.movies) { m in
+                            Text(m.title).font(.caption2)
+                        }
+                    }
                 }
             }
         }

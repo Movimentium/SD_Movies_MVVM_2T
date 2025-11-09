@@ -25,19 +25,6 @@ final class SDProvider {
 
 #if DEBUG
 // Things for Previews
-extension SDProvider {
-//    static let fakeModelContainer = SDProvider(true).modelContainer
-//    
-//    static func fakeModelContainer(_ isInMemoryOnly: Bool = true) -> ModelContainer {
-//        Self.insertFakeData()
-//        return Self.fakeModelContainer
-//    }
-//    
-//    static func insertFakeData() {
-//        Movie.movies.forEach { Self.fakeModelContainer.mainContext.insert($0) }
-//    }
-}
-
 extension ModelContext {
     @MainActor
     static let fakeModelCtx = ModelContainer.fakeModelContainer.mainContext
