@@ -5,7 +5,6 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-
 @Model
 final class Actor {
     var name: String
