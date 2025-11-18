@@ -40,8 +40,10 @@ struct MovieListScreen: View {
             }
         }
         .sheet(isPresented: $bindableVM.showingAddMovie) {
-            Text("Add Movie") //TODO: AddMovieScreen
-        }        
+            NavigationStack {
+                AddMovieScreen()
+            }
+        }
     }
 }
 
