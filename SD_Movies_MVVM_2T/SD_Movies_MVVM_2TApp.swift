@@ -8,15 +8,24 @@ import SwiftData
 struct SD_Movies_MVVM_2TApp: App {
     
     let modelContainer: ModelContainer
+    let movieVM: MovieVM
     
     init() {
         modelContainer = SDProvider().modelContainer
-        
+        movieVM = MovieVM(modelCtx: modelContainer.mainContext)
+        #if DEBUG
+        Movie.movies.forEach { modelContainer.mainContext.insert($0) }
+        #endif
     }
     
     var body: some Scene {
         WindowGroup {
-            DebugScreen()
+            NavigationStack {
+                MovieListScreen()
+//                DebugScreen()
+            }
         }
+        .modelContainer(modelContainer)
+        .environment(movieVM)
     }
 }
