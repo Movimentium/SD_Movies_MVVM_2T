@@ -15,15 +15,26 @@ struct AddMovieScreen: View {
                 Text("Title").font(.headline)
                 TextField("Title", text: $bindableVM.title)
             }
-            
+            Picker(selection: $bindableVM.year) {
+                ForEach(vm.years, id: \.self) { year in
+                    Text(year.description).tag(year)
+                }
+            } label: {
+                Text("Year").font(.headline)
+            }
         }
         .navigationTitle("Add Movie")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    
+                    vm.showingAddMovie = false
                 } label: {
                     Image(systemName: "xmark")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Save") {
+                    vm.addMovie()
                 }
             }
         }

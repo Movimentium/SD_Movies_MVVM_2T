@@ -11,7 +11,7 @@ final class MovieVM {
     
     let years: [Int]
     var showingAddMovie = false
-
+    var movieToUpdate: Movie?
     
     private let modelCtx: ModelContext
     
@@ -25,8 +25,39 @@ final class MovieVM {
     func showAddMovie() {
         showingAddMovie = true
     }
+
+    
+    // MARK: DB Methods
+    func addMovie() {
+        let title = title.trimmingCharacters(in: .whitespaces)
+        let newMovie = Movie(title: title, year: year)
+        //TODO: add poster
+        
+        modelCtx.insert(newMovie)
+        showingAddMovie = false
+    }
+    
+    func updateMovie() {
+        guard let movie = movieToUpdate else { return }
+        movie.title = title.trimmingCharacters(in: .whitespaces)
+        movie.year = year
+        //TODO: update poster
+
+        save()
+    }
     
     func deleteMovie(_ movie: Movie) {
-        
+        modelCtx.delete(movie)
+        save()
     }
+    
+    private func save() {
+        do {
+            try modelCtx.save()
+            print(Self.self, #function, "OK")
+        } catch {
+            print(Self.self, #function, "Error saving context: \(error)")
+        }
+    }
+    
 }
