@@ -13,9 +13,6 @@ struct SD_Movies_MVVM_2TApp: App {
     init() {
         modelContainer = SDProvider().modelContainer
         movieVM = MovieVM(modelCtx: modelContainer.mainContext)
-        #if DEBUG
-        Movie.movies.forEach { modelContainer.mainContext.insert($0) }
-        #endif
     }
     
     var body: some Scene {

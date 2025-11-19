@@ -18,7 +18,7 @@ struct MovieListScreen: View {
                         Image(uiImage: m.img)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50)
+                            .frame(width: 60)
                         VStack(alignment: .leading) {
                             Text(m.title).bold()
                             Text(m.strYear).font(.caption)
@@ -44,6 +44,11 @@ struct MovieListScreen: View {
                 AddMovieScreen()
             }
         }
+        #if DEBUG
+        .onTapGesture(count: 3) {
+            vm.debug_insertMockData()
+        }
+        #endif
     }
 }
 
